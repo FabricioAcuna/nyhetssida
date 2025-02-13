@@ -1,7 +1,7 @@
 export default function Header() {
   return (
     <div>
-      <nav className="navbar bg-base-100">
+      <nav className="navbar bg-slate-200 text-gray-800">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -43,7 +43,7 @@ export default function Header() {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="btn btn-ghost text-2xl">ChasNews</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
