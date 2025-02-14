@@ -22,15 +22,19 @@
 //     </div>
 //   );
 // }
+
+
+
+
+
 export async function getServerSideProps(context) {
-  // Fetch the latest news in sports and top categories
+  const { id } = context.params;
+
   const response = await fetch(
-    `https://newsdata.io/api/1/latest?apikey=pub_693775b850da01d9f5c745004ebd3ecdba63b&category=sports,top`
+    `https://newsdata.io/api/1/news?apikey=${process.env.DIN_API_KEY}&category=sports`
   );
   const data = await response.json();
-
-  // Extract the first article, or you could modify it to fetch more or specific articles
-  const article = data.results ? data.results[0] : null;
+  const article = data.results.find((item) => item.article_id === id) || null;
 
   return {
     props: {
@@ -41,18 +45,36 @@ export async function getServerSideProps(context) {
 
 export default function SSRArticle({ article }) {
   if (!article) {
-    return <p>Loading or no articles found.</p>;
+    return <p className="text-center text-xl font-semibold mt-10">Ingen artikel</p>;
   }
 
   return (
-    <div>
-      <h1>{article.title}</h1>
-      <img
-        src={article.image_url}
-        alt={article.title}
-        style={{ maxWidth: "100%", height: "auto" }}
-      />
-      <p>{article.description}</p>
+    <div className="container mx-auto p-6">
+      <div className="card bg-base-100 shadow-xl p-6">
+        {article.image_url && (
+          <figure>
+            <img
+              src={article.image_url}
+              alt={article.title}
+              className="w-full max-h-96 object-cover rounded-lg"
+            />
+          </figure>
+        )}
+
+        <div className="card-body">
+          <h1 className="text-3xl font-bold">{article.title}</h1>
+          <p className="text-lg text-gray-700 mt-4">{article.description || "Fungerar ej"}</p>
+          
+          <div className="mt-6">
+            <button
+              className="btn btn-secondary"
+              onClick={() => window.history.back()}
+            >
+              Tillbaka
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
