@@ -34,7 +34,7 @@ import Link from "next/link";
 export async function getServerSideProps() {
   // Hämta data här
   const response = await fetch(
-    `https://newsdata.io/api/1/news?apikey=${process.env.DIN_API_KEY}&category=sports,top`
+    `https://newsdata.io/api/1/news?apikey=${process.env.DIN_API_KEY}&category=sports` // Tar vi bort ",top" så visas endast sport och inte allt
   );
   const data = await response.json();
 
