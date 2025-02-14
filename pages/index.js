@@ -14,9 +14,7 @@ export async function getServerSideProps() {
 export default function SSRNews({ news }) {
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-3xl font-bold text-center mb-6">
-        Senaste Sportnyheter
-      </h1>
+      <h1 className="text-3xl font-bold text-center mb-6">Senaste Nyheter</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {news.map((newItem) => (
