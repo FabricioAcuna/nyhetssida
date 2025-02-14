@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Header() {
   return (
     <div>
@@ -43,7 +45,9 @@ export default function Header() {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-2xl">ChasNews</a>
+          <Link href="/" className="btn btn-ghost text-2xl">
+            ChasNews
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
