@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export async function getServerSideProps() {
   const response = await fetch(
-    `https://newsdata.io/api/1/news?apikey=${process.env.DIN_API_KEY}`
+    `https://newsdata.io/api/1/news?apikey=${process.env.DIN_API_KEY}&category=sports`
   );
   const data = await response.json();
 
@@ -11,7 +11,7 @@ export async function getServerSideProps() {
   };
 }
 
-export default function SSRNews({ news }) {
+export default function SSRNewsSports({ news }) {
   return (
     <div className="container mx-auto p-6">
       <h1 className="text-3xl font-bold text-center mb-6">

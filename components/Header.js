@@ -52,9 +52,16 @@ export default function Header() {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Item 1</a>
+              <Link href={"/sports"}>
+                <h2>Sports</h2>
+              </Link>
             </li>
             <li>
+              <Link href={"/category1"}>
+                <h2>Category1</h2>
+              </Link>
+            </li>
+            {/* <li>
               <details>
                 <summary>Parent</summary>
                 <ul className="p-2">
@@ -66,9 +73,11 @@ export default function Header() {
                   </li>
                 </ul>
               </details>
-            </li>
+            </li> */}
             <li>
-              <a>Item 3</a>
+              <Link href={"/category2"}>
+                <h2>Category2</h2>
+              </Link>
             </li>
           </ul>
         </div>
