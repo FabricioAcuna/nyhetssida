@@ -1,40 +1,17 @@
-// export async function getServerSideProps(context) {
-//   const { id } = context.params;
-
-//   const response = await fetch(
-//     `https://newsdata.io/api/1/news?apikey=${process.env.DIN_API_KEY}&category=sports,top&id=${id}`
-//   );
-//   const data = await response.json();
-
-//   return {
-//     props: {
-//       article,
-//     },
-//   };
-// }
-
-// export default function SSRArticle({ article }) {
-//   return (
-//     <div>
-//       <h1>{article.title}</h1>
-//       <img src={article.image_url} />
-//       <p>{article.description}</p>
-//     </div>
-//   );
-// }
-
-
-
-
-
 export async function getServerSideProps(context) {
+  console.log(context.params)
   const { id } = context.params;
+  const category = id[0]
+  const realID = id[1]
+
+  console.log(category, realID)
 
   const response = await fetch(
-    `https://newsdata.io/api/1/news?apikey=${process.env.DIN_API_KEY}&category=sports`
+    `https://newsdata.io/api/1/news?apikey=${process.env.DIN_API_KEY}&category=${category}`
   );
   const data = await response.json();
-  const article = data.results.find((item) => item.article_id === id) || null;
+  console.log(data)
+  const article = data.results.find((item) => item.article_id === realID) || null;
 
   return {
     props: {

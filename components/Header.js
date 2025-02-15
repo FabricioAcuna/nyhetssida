@@ -53,12 +53,12 @@ export default function Header() {
           <ul className="menu menu-horizontal px-1">
             <li>
               <Link href={"/sports"}>
-                <h2>Sports</h2>
+                <h2 className="font-semibold">Sports</h2>
               </Link>
             </li>
             <li>
               <Link href={"/politics"}>
-                <h2>Politics</h2>
+                <h2 className="font-semibold">Politics</h2>
               </Link>
             </li>
             {/* <li>
@@ -76,7 +76,7 @@ export default function Header() {
             </li> */}
             <li>
               <Link href={"/category2"}>
-                <h2>Category2</h2>
+                <h2 className="font-semibold">Category2</h2>
               </Link>
             </li>
           </ul>
