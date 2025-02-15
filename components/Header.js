@@ -57,8 +57,8 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link href={"/category1"}>
-                <h2>Category1</h2>
+              <Link href={"/politics"}>
+                <h2>Politics</h2>
               </Link>
             </li>
             {/* <li>
