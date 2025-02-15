@@ -35,7 +35,7 @@ export default function SSRNews({ news }) {
               </p>
               <div className="card-actions justify-end">
                 <Link
-                  href={`/newsArticles/${newItem.article_id}`}
+                  href={`/newsArticles/${newItem.category}/${newItem.article_id}`}
                   className="btn btn-primary"
                 >
                   Läs mer
