@@ -1,17 +1,23 @@
 export async function getServerSideProps(context) {
-  console.log(context.params)
-  const { id } = context.params;
-  const category = id[0]
-  const realID = id[1]
+  const { slug } = context.params;
 
-  console.log(category, realID)
+  let articleID
+  let url 
+
+  if (slug.length === 1) {
+    url = `https://newsdata.io/api/1/news?apikey=${process.env.DIN_API_KEY}`
+    articleID = slug[0]
+  } else {
+    url = `https://newsdata.io/api/1/news?apikey=${process.env.DIN_API_KEY}&category=${slug[0]}`
+    articleID = slug[1] 
+  }
 
   const response = await fetch(
-    `https://newsdata.io/api/1/news?apikey=${process.env.DIN_API_KEY}&category=${category}`
+    url
   );
   const data = await response.json();
-  console.log(data)
-  const article = data.results.find((item) => item.article_id === realID) || null;
+  
+  const article = data.results.find((item) => item.article_id === articleID) || null;
 
   return {
     props: {
