@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Header() {
   return (
     <div className="sticky top-0 z-50">
-      <nav className="navbar bg-gray-200 border-b-2 border-red-500 text-gray-800 p-4">
+      <nav className="navbar bg-gray-200 border-b-2 border-red-500 text-gray-800 p-3">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -62,12 +62,12 @@ export default function Header() {
           <ul className="menu menu-horizontal px-1">
             <li>
               <Link href={"/sports"}>
-                <h2 className="font-semibold text-lg">Sports</h2>
+                <h2 className="font-semibold text-xl">Sports</h2>
               </Link>
             </li>
             <li>
               <Link href={"/politics"}>
-                <h2 className="font-semibold text-lg">Politics</h2>
+                <h2 className="font-semibold text-xl">Politics</h2>
               </Link>
             </li>
             {/* <li>
@@ -85,7 +85,7 @@ export default function Header() {
             </li> */}
             <li>
               <Link href={"/category2"}>
-                <h2 className="font-semibold text-lg">Category2</h2>
+                <h2 className="font-semibold text-xl">Category2</h2>
               </Link>
             </li>
           </ul>

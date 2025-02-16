@@ -63,7 +63,7 @@ export default function SSRNews({ news }) {
           {news.map((newItem) => (
             <div
               key={newItem.article_id}
-              className="card bg-white shadow-xl border-t-2 border-red-500  flex flex-col"
+              className="card bg-white shadow-xl border-t-2 border-red-500 flex flex-col  transform transition-transform duration-300 hover:scale-105"
             >
               <Link
                 href={`/newsArticles/${newItem.category}/${newItem.article_id}`}
