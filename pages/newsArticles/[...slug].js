@@ -33,13 +33,12 @@ export default function SSRArticle({ article }) {
         {article.image_url && (
           <figure>
             <img
-              src={newItem.image_url || defaultImg}
+              src={article.image_url || defaultImg}
               alt={article.title}
               className="w-full max-h-96 object-cover rounded-lg"
             />
           </figure>
         )}
-
         <div className="card-body">
           <h1 className="text-3xl font-bold">{article.title}</h1>
           <p className="text-lg text-gray-700 mt-4">
