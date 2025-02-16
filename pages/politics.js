@@ -24,7 +24,7 @@ const getTeaser = (text, wordLimit = 20) => {
 
 export default function SSRNewsCategory1({ news }) {
   return (
-    <div className="container mx-auto p-6">
+    <div className="container bg-gray-100 mx-auto p-6">
       <h1 className="text-3xl font-bold text-center mb-6">
         Senaste Politiknyheter
       </h1>

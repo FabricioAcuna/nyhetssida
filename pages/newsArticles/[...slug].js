@@ -26,7 +26,7 @@ export default function SSRArticle({ article }) {
   }
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="container bg-gray-100 mx-auto p-6">
       <div className="card bg-base-100 shadow-xl p-6">
         {article.image_url && (
           <figure>
