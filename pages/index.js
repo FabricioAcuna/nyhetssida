@@ -6,8 +6,12 @@ export async function getServerSideProps() {
   );
   const data = await response.json();
 
+  const filteredNews = data.results?.filter(
+    (article) => article.description && article.description.trim() !== ""
+  ) || [];
+
   return {
-    props: { news: data.results || [] },
+    props: { news: filteredNews },
   };
 }
 
