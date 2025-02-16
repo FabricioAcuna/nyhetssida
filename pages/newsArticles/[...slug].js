@@ -1,14 +1,15 @@
 export async function getServerSideProps(context) {
   const { slug } = context.params;
-  const category = slug[0]
-  const articleID = slug[1]
+  const category = slug[0];
+  const articleID = slug[1];
 
   const response = await fetch(
     `https://newsdata.io/api/1/news?apikey=${process.env.DIN_API_KEY}&category=${category}`
   );
   const data = await response.json();
-  
-  const article = data.results.find((item) => item.article_id === articleID) || null;
+
+  const article =
+    data.results.find((item) => item.article_id === articleID) || null;
 
   return {
     props: {
@@ -19,7 +20,9 @@ export async function getServerSideProps(context) {
 
 export default function SSRArticle({ article }) {
   if (!article) {
-    return <p className="text-center text-xl font-semibold mt-10">Ingen artikel</p>;
+    return (
+      <p className="text-center text-xl font-semibold mt-10">Ingen artikel</p>
+    );
   }
 
   return (
@@ -37,8 +40,10 @@ export default function SSRArticle({ article }) {
 
         <div className="card-body">
           <h1 className="text-3xl font-bold">{article.title}</h1>
-          <p className="text-lg text-gray-700 mt-4">{article.description || "Fungerar ej"}</p>
-          
+          <p className="text-lg text-gray-700 mt-4">
+            {article.description || "Fungerar ej"}
+          </p>
+
           <div className="mt-6">
             <button
               className="btn btn-secondary"
