@@ -6,9 +6,10 @@ export async function getServerSideProps() {
   );
   const data = await response.json();
 
-  const filteredNews = data.results?.filter(
-    (article) => article.description && article.description.trim() !== ""
-  ) || [];
+  const filteredNews =
+    data.results?.filter(
+      (article) => article.description && article.description.trim() !== ""
+    ) || [];
 
   return {
     props: { news: filteredNews },
@@ -81,7 +82,7 @@ export default function SSRNews({ news }) {
                 className="flex-grow"
               >
                 <div className="card-body">
-                  <h2 className="card-title text-black text-3xl font-bold">
+                  <h2 className="card-title text-black text-3xl font-bold underline">
                     {newItem.title}
                   </h2>
                   <p className="text-sm text-gray-800">

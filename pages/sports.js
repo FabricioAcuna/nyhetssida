@@ -35,15 +35,13 @@ export default function SSRNewsSports({ news }) {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {news.map((newItem) => (
           <div key={newItem.article_id} className="card bg-base-100 shadow-xl">
-            {newItem.image_url && (
-              <figure>
-                <img
-                  src={newItem.image_url || defaultImg}
-                  alt={newItem.title}
-                  className="w-full h-52 object-cover"
-                />
-              </figure>
-            )}
+            <figure>
+              <img
+                src={newItem.image_url || defaultImg}
+                alt={newItem.title}
+                className="w-full h-52 object-cover"
+              />
+            </figure>
             <div className="card-body">
               <h2 className="card-title">{newItem.title}</h2>
               <p className="text-sm text-gray-600">
