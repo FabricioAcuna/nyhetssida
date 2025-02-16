@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export async function getServerSideProps() {
   const response = await fetch(
-    `https://newsdata.io/api/1/news?apikey=${process.env.DIN_API_KEY}&category=sports`
+    `https://newsdata.io/api/1/news?apikey=${process.env.DIN_API_KEY}&category=sports&language=en`
   );
   const data = await response.json();
 
