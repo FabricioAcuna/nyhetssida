@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <div>
-      <nav className="navbar bg-slate-200 text-gray-800">
+    <div className="sticky top-0 z-50">
+      <nav className="navbar bg-gray-200 border-b-2 border-red-500 text-gray-800 p-4">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -24,12 +24,14 @@ export default function Header() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-white"
             >
               <li>
-                <a>Item 1</a>
+                <Link href={"/sports"}>
+                  <h2 className="font-semibold">Sports</h2>
+                </Link>
               </li>
-              <li>
+              {/* <li>
                 <a>Parent</a>
                 <ul className="p-2">
                   <li>
@@ -39,13 +41,20 @@ export default function Header() {
                     <a>Submenu 2</a>
                   </li>
                 </ul>
+              </li> */}
+              <li>
+                <Link href={"/politics"}>
+                  <h2 className="font-semibold">Politics</h2>
+                </Link>
               </li>
               <li>
-                <a>Item 3</a>
+                <Link href={"/category2"}>
+                  <h2 className="font-semibold">Category2</h2>
+                </Link>
               </li>
             </ul>
           </div>
-          <Link href="/" className="btn btn-ghost text-2xl">
+          <Link href="/" className="btn btn-ghost text-4xl text-gray-900">
             ChasNews
           </Link>
         </div>
@@ -53,12 +62,12 @@ export default function Header() {
           <ul className="menu menu-horizontal px-1">
             <li>
               <Link href={"/sports"}>
-                <h2 className="font-semibold">Sports</h2>
+                <h2 className="font-semibold text-lg">Sports</h2>
               </Link>
             </li>
             <li>
               <Link href={"/politics"}>
-                <h2 className="font-semibold">Politics</h2>
+                <h2 className="font-semibold text-lg">Politics</h2>
               </Link>
             </li>
             {/* <li>
@@ -76,7 +85,7 @@ export default function Header() {
             </li> */}
             <li>
               <Link href={"/category2"}>
-                <h2 className="font-semibold">Category2</h2>
+                <h2 className="font-semibold text-lg">Category2</h2>
               </Link>
             </li>
           </ul>
