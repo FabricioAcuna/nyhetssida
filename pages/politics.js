@@ -23,6 +23,8 @@ const getTeaser = (text, wordLimit = 20) => {
 };
 
 export default function SSRNewsCategory1({ news }) {
+  const defaultImg =
+    "https://s.france24.com/media/display/e6279b3c-db08-11ee-b7f5-005056bf30b7/w:1280/p:16x9/news_en_1920x1080.jpg";
   return (
     <div className="container bg-gray-100 mx-auto p-6">
       <h1 className="text-3xl font-bold text-center mb-6">
@@ -35,7 +37,7 @@ export default function SSRNewsCategory1({ news }) {
             {newItem.image_url && (
               <figure>
                 <img
-                  src={newItem.image_url}
+                  src={newItem.image_url || defaultImg}
                   alt={newItem.title}
                   className="w-full h-52 object-cover"
                 />

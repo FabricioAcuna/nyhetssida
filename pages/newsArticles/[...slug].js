@@ -19,6 +19,8 @@ export async function getServerSideProps(context) {
 }
 
 export default function SSRArticle({ article }) {
+  const defaultImg =
+    "https://s.france24.com/media/display/e6279b3c-db08-11ee-b7f5-005056bf30b7/w:1280/p:16x9/news_en_1920x1080.jpg";
   if (!article) {
     return (
       <p className="text-center text-xl font-semibold mt-10">Ingen artikel</p>
@@ -31,7 +33,7 @@ export default function SSRArticle({ article }) {
         {article.image_url && (
           <figure>
             <img
-              src={article.image_url}
+              src={newItem.image_url || defaultImg}
               alt={article.title}
               className="w-full max-h-96 object-cover rounded-lg"
             />
