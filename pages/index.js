@@ -15,6 +15,13 @@ export async function getServerSideProps() {
   };
 }
 
+const getTeaser = (text, wordLimit = 20) => {
+  const words = text.split(/\s+/).filter(Boolean);
+  return words.length > wordLimit
+    ? words.slice(0, wordLimit).join(" ") + "..."
+    : text;
+};
+
 // export default function SSRNews({ news }) {
 //   return (
 //     <div className="container mx-auto p-6">
@@ -78,7 +85,7 @@ export default function SSRNews({ news }) {
                     {newItem.title}
                   </h2>
                   <p className="text-sm text-gray-800">
-                    {newItem.description || "Ingen beskrivning tillgänglig."}
+                    {getTeaser(newItem.description)}
                   </p>
                 </div>
               </Link>
