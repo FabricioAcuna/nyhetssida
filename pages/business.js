@@ -32,9 +32,9 @@ export default function SSRNewsBusiness({ news }) {
       <h1 className="text-3xl font-bold text-center mb-6 text-black">
         Latest Business News
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-10">
         {news.map((newItem) => (
-          <div key={newItem.article_id} className="card bg-base-100 shadow-xl">
+          <div key={newItem.article_id} className="card bg-base-100 shadow-xl border-t-4 border-pink-600">
             <figure>
               <img
                 src={newItem.image_url || defaultImg}

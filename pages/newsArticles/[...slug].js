@@ -27,15 +27,23 @@ export default function SSRArticle({ article }) {
 
   if (!article) {
     return (
-      <p className="text-center text-xl font-semibold mt-10">No article available</p>
+      <div>
+        <p className="text-center text-xl font-semibold my-10">No article available</p>
+        <button
+          className="btn btn-primary ml-2 mb-2"
+          onClick={() => window.history.back()}
+        >
+          Back
+        </button>
+      </div>
     );
   }
 
   const isSaved = savedArticles.some((a) => a.article_id === article.article_id);
 
   return (
-    <div className="container bg-gray-100 mx-auto p-16">
-      <div className="card bg-white shadow-xl p-6 border-y-2 border-red-500">
+    <div className="container bg-gray-100 mx-auto p-6 md:p-16 lg:p-16">
+      <div className="card bg-white shadow-xl md:p-6 lg:p-6 border-y-2 border-red-500">
         <figure className="mt-auto">
           <img
             src={article.image_url || defaultImg}
@@ -44,7 +52,7 @@ export default function SSRArticle({ article }) {
           />
         </figure>
         <div className="card-body">
-          <h1 className="text-3xl font-bold text-black">{article.title}</h1>
+          <h1 className="text-xl md:text-3xl lg:text-3xl font-bold text-black">{article.title}</h1>
           <p className="text-lg text-gray-800 mt-4">
             {article.description}
           </p>
