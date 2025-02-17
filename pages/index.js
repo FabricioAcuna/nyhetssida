@@ -71,7 +71,7 @@ export default function SSRNews({ news }) {
           Senaste Nyheter
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 p-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 md:p-20 lg:p-20">
           {news.map((newItem) => (
             <div
               key={newItem.article_id}
