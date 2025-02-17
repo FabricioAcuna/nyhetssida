@@ -7,7 +7,7 @@ export default function SavedArticlesPage() {
     "https://s.france24.com/media/display/e6279b3c-db08-11ee-b7f5-005056bf30b7/w:1280/p:16x9/news_en_1920x1080.jpg";
 
   return (
-    <div className="container mx-auto p-6 bg-gray-100">
+    <div className="container mx-auto p-6 bg-gray-100 h-screen">
       <h1 className="text-4xl font-bold text-center mb-6">Saved articles</h1>
 
       {savedArticles.length === 0 ? (
