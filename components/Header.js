@@ -43,8 +43,8 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <Link href={"/category2"}>
-                  <h2 className="font-semibold">Category2</h2>
+                <Link href={"/business"}>
+                  <h2 className="font-semibold">Business</h2>
                 </Link>
               </li>
             </ul>
@@ -71,8 +71,8 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link href={"/category2"}>
-                <h2 className="font-semibold text-xl">Category2</h2>
+              <Link href={"/business"}>
+                <h2 className="font-semibold text-xl">Business</h2>
               </Link>
             </li>
           </ul>

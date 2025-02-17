@@ -68,7 +68,7 @@ export default function SSRNews({ news }) {
     <div className="min-h-screen bg-gray-100">
       <div className="container mx-auto p-6">
         <h1 className="text-4xl font-bold text-center mb-6 text-black">
-          Senaste Nyheter
+          Latest News
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 md:p-20 lg:p-20">

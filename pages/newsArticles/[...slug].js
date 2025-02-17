@@ -23,7 +23,7 @@ export default function SSRArticle({ article }) {
     "https://s.france24.com/media/display/e6279b3c-db08-11ee-b7f5-005056bf30b7/w:1280/p:16x9/news_en_1920x1080.jpg";
   if (!article) {
     return (
-      <p className="text-center text-xl font-semibold mt-10">Ingen artikel</p>
+      <p className="text-center text-xl font-semibold mt-10">No article available</p>
     );
   }
 
@@ -48,7 +48,7 @@ export default function SSRArticle({ article }) {
               className="btn btn-primary"
               onClick={() => window.history.back()}
             >
-              Tillbaka
+              Back
             </button>
           </div>
         </div>

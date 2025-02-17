@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export async function getServerSideProps() {
   const response = await fetch(
-    `https://newsdata.io/api/1/news?apikey=${process.env.DIN_API_KEY}&category=politics&language=en`
+    `https://newsdata.io/api/1/news?apikey=${process.env.DIN_API_KEY}&category=business&language=en`
   );
   const data = await response.json();
 
@@ -23,14 +23,14 @@ const getTeaser = (text, wordLimit = 20) => {
     : text;
 };
 
-export default function SSRNewsPolitics({ news }) {
+export default function SSRNewsBusiness({ news }) {
   const defaultImg =
     "https://s.france24.com/media/display/e6279b3c-db08-11ee-b7f5-005056bf30b7/w:1280/p:16x9/news_en_1920x1080.jpg";
 
   return (
     <div className="container bg-gray-100 mx-auto p-6">
       <h1 className="text-3xl font-bold text-center mb-6 text-black">
-        Latest Politics News
+        Latest Business News
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {news.map((newItem) => (
@@ -49,7 +49,7 @@ export default function SSRNewsPolitics({ news }) {
               </p>
               <div className="card-actions justify-end">
                 <Link
-                  href={`/newsArticles/politics/${newItem.article_id}`}
+                  href={`/newsArticles/business/${newItem.article_id}`}
                   className="btn btn-primary"
                 >
                   Read more
