@@ -6,7 +6,7 @@ export async function getServerSideProps(context) {
   const articleID = slug[1];
 
   const response = await fetch(
-    `https://newsdata.io/api/1/news?apikey=${process.env.DIN_API_KEY}&category=${category}`
+    `https://newsdata.io/api/1/news?apikey=${process.env.DIN_API_KEY}&category=${category}&language=en`
   );
   const data = await response.json();
 
@@ -64,7 +64,7 @@ export default function SSRArticle({ article }) {
               Back
             </button>
             <button
-              className={`btn ${isSaved ? "btn-error" : "btn-primary"}`}
+              className={`btn ${isSaved ? "btn-error" : "btn-accent"}`}
               onClick={() =>
                 isSaved ? removeArticle(article.article_id) : saveArticle(article)
               }
