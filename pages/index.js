@@ -82,7 +82,7 @@ export default function SSRNews({ news }) {
                 className="flex-grow"
               >
                 <div className="card-body">
-                  <h2 className="card-title text-black text-3xl font-bold underline">
+                  <h2 className="card-title text-black text-3xl font-bold hover:underline">
                     {newItem.title}
                   </h2>
                   <p className="text-sm text-gray-800">
