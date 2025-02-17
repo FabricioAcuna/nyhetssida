@@ -11,13 +11,22 @@ export default function SavedArticlesPage() {
       <h1 className="text-4xl font-bold text-center mb-6">Saved articles</h1>
 
       {savedArticles.length === 0 ? (
-        <p className="text-center text-xl">No saved articles yet</p>
+        <p className="text-center text-xl text-gray-800">
+          No saved articles yet
+        </p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-10">
           {savedArticles.map((article) => (
-            <div key={article.article_id} className="card bg-white shadow-xl p-4 border-y-2 border-red-500">
-              <Link href={`/newsArticles/${article.category}/${article.article_id}`}>
-                <h2 className="text-2xl font-bold hover:underline">{article.title}</h2>
+            <div
+              key={article.article_id}
+              className="card bg-white shadow-xl p-4 border-y-2 border-red-500"
+            >
+              <Link
+                href={`/newsArticles/${article.category}/${article.article_id}`}
+              >
+                <h2 className="text-2xl font-bold hover:underline text-black">
+                  {article.title}
+                </h2>
               </Link>
               <img
                 src={article.image_url || defaultImg}
