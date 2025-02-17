@@ -24,7 +24,7 @@ export default function Header() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-white"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
                 <Link href={"/"}>
@@ -45,6 +45,11 @@ export default function Header() {
               <li>
                 <Link href={"/business"}>
                   <h2 className="font-semibold">Business</h2>
+                </Link>
+              </li>
+              <li>
+                <Link href={"/saved"}>
+                  <h2 className="font-semibold">Bookmarks</h2>
                 </Link>
               </li>
             </ul>
@@ -75,6 +80,12 @@ export default function Header() {
                 <h2 className="font-semibold text-xl">Business</h2>
               </Link>
             </li>
+            <li>
+              <Link href={"/saved"}>
+                <h2 className="font-semibold text-xl">Bookmarks</h2>
+              </Link>
+            </li>
+
           </ul>
         </div>
         <div className="navbar-end">{/* <a className="btn">Button</a> */}</div>

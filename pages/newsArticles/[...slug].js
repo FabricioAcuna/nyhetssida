@@ -1,3 +1,5 @@
+import { useSavedArticles } from "@/context/SavedArticlesContext";
+
 export async function getServerSideProps(context) {
   const { slug } = context.params;
   const category = slug[0];
@@ -19,13 +21,17 @@ export async function getServerSideProps(context) {
 }
 
 export default function SSRArticle({ article }) {
+  const { saveArticle, removeArticle, savedArticles } = useSavedArticles();
   const defaultImg =
     "https://s.france24.com/media/display/e6279b3c-db08-11ee-b7f5-005056bf30b7/w:1280/p:16x9/news_en_1920x1080.jpg";
+
   if (!article) {
     return (
       <p className="text-center text-xl font-semibold mt-10">No article available</p>
     );
   }
+
+  const isSaved = savedArticles.some((a) => a.article_id === article.article_id);
 
   return (
     <div className="container bg-gray-100 mx-auto p-16">
@@ -40,16 +46,25 @@ export default function SSRArticle({ article }) {
         <div className="card-body">
           <h1 className="text-3xl font-bold text-black">{article.title}</h1>
           <p className="text-lg text-gray-800 mt-4">
-            {article.description || "Fungerar ej"}
+            {article.description}
           </p>
-
-          <div className="mt-6">
+          <div className="mt-6 flex gap-4">
             <button
               className="btn btn-primary"
               onClick={() => window.history.back()}
             >
               Back
             </button>
+            <button
+              className={`btn ${isSaved ? "btn-error" : "btn-primary"}`}
+              onClick={() =>
+                isSaved ? removeArticle(article.article_id) : saveArticle(article)
+              }
+            >
+              {isSaved ? "Remove bookmark" : "Bookmark"
+              }
+            </button>
+
           </div>
         </div>
       </div>
