@@ -15,9 +15,16 @@ export default function SavedArticlesPage() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-10">
           {savedArticles.map((article) => (
-            <div key={article.article_id} className="card bg-white shadow-xl p-4 border-y-2 border-red-500">
-              <Link href={`/newsArticles/${article.category}/${article.article_id}`}>
-                <h2 className="text-2xl font-bold hover:underline">{article.title}</h2>
+            <div
+              key={article.article_id}
+              className="card bg-white shadow-xl p-4 border-y-2 border-red-500"
+            >
+              <Link
+                href={`/newsArticles/${article.category}/${article.article_id}`}
+              >
+                <h2 className="text-2xl font-bold hover:underline text-black">
+                  {article.title}
+                </h2>
               </Link>
               <img
                 src={article.image_url || defaultImg}
