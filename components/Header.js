@@ -36,17 +36,7 @@ export default function Header() {
                   <h2 className="font-semibold">Sports</h2>
                 </Link>
               </li>
-              {/* <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </li> */}
+
               <li>
                 <Link href={"/politics"}>
                   <h2 className="font-semibold">Politics</h2>
@@ -80,19 +70,6 @@ export default function Header() {
                 <h2 className="font-semibold text-xl">Politics</h2>
               </Link>
             </li>
-            {/* <li>
-              <details>
-                <summary>Parent</summary>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </details>
-            </li> */}
             <li>
               <Link href={"/category2"}>
                 <h2 className="font-semibold text-xl">Category2</h2>
@@ -100,9 +77,7 @@ export default function Header() {
             </li>
           </ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn">Button</a>
-        </div>
+        <div className="navbar-end">{/* <a className="btn">Button</a> */}</div>
       </nav>
     </div>
   );

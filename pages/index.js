@@ -85,7 +85,7 @@ export default function SSRNews({ news }) {
                   <h2 className="card-title text-black text-3xl font-bold underline">
                     {newItem.title}
                   </h2>
-                  <p className="text-sm text-gray-800">
+                  <p className="text-sm text-gray-700">
                     {getTeaser(newItem.description)}
                   </p>
                 </div>
