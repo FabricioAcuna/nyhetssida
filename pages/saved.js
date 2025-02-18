@@ -8,7 +8,9 @@ export default function SavedArticlesPage() {
 
   return (
     <div className="container mx-auto p-6 bg-gray-100 min-h-screen">
-      <h1 className="text-4xl font-bold text-center mb-6">Saved articles</h1>
+      <h1 className="text-4xl font-bold text-center mb-6 text-black">
+        Saved articles
+      </h1>
 
       {savedArticles.length === 0 ? (
         <p className="text-center text-xl text-gray-800">
