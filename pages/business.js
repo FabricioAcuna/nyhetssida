@@ -46,8 +46,8 @@ export default function SSRNewsBusiness({ news }) {
               />
             </figure>
             <div className="card-body">
-              <h2 className="card-title">{newItem.title}</h2>
-              <p className="text-sm text-gray-600">
+              <h2 className="card-title text-black">{newItem.title}</h2>
+              <p className="text-sm text-gray-700">
                 {getTeaser(newItem.description)}
               </p>
               <div className="card-actions justify-end">
