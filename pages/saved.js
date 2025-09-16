@@ -7,44 +7,56 @@ export default function SavedArticlesPage() {
     "https://s.france24.com/media/display/e6279b3c-db08-11ee-b7f5-005056bf30b7/w:1280/p:16x9/news_en_1920x1080.jpg";
 
   return (
-    <div className="container mx-auto p-6 bg-gray-100 min-h-screen">
-      <h1 className="text-4xl font-bold text-center mb-6 text-black">
-        Saved articles
-      </h1>
+    <div className="min-h-screen bg-gray-900 text-white">
+      <div className="container mx-auto p-4 sm:p-6 lg:p-8">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-center mb-10 sm:mb-12 lg:mb-16 tracking-tight">
+          Saved Articles
+        </h1>
 
-      {savedArticles.length === 0 ? (
-        <p className="text-center text-xl text-gray-800">
-          No saved articles yet
-        </p>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-10">
-          {savedArticles.map((article) => (
-            <div
-              key={article.article_id}
-              className="card bg-white shadow-xl p-4 border-y-2 border-red-500"
-            >
-              <Link
-                href={`/newsArticles/${article.category}/${article.article_id}`}
+        {savedArticles.length === 0 ? (
+          <p className="text-center text-xl text-gray-400">
+            You have no saved articles.
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
+            {savedArticles.map((article) => (
+              <div
+                key={article.article_id}
+                className="bg-gray-800 rounded-2xl shadow-lg overflow-hidden flex flex-col"
               >
-                <h2 className="text-2xl font-bold hover:underline text-black">
-                  {article.title}
-                </h2>
-              </Link>
-              <img
-                src={article.image_url || defaultImg}
-                alt={article.title}
-                className="w-full h-40 object-cover mt-2"
-              />
-              <button
-                className="btn btn-error mt-4 w-fit"
-                onClick={() => removeArticle(article.article_id)}
-              >
-                Remove bookmark
-              </button>
-            </div>
-          ))}
-        </div>
-      )}
+                <Link
+                  href={{
+                    pathname: `/newsArticles/${article.article_id}`,
+                    query: { article: JSON.stringify(article) },
+                  }}
+                  className="block hover:opacity-90 transition-opacity duration-200"
+                >
+                  <figure>
+                    <img
+                      src={article.image_url || defaultImg}
+                      alt={article.title}
+                      className="w-full h-56 object-cover"
+                    />
+                  </figure>
+                  <div className="p-5 sm:p-6 lg:p-7">
+                    <h2 className="text-xl lg:text-2xl font-bold text-white mb-3">
+                      {article.title}
+                    </h2>
+                  </div>
+                </Link>
+                <div className="p-5 sm:p-6 lg:p-7 pt-0 mt-auto">
+                  <button
+                    className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 shadow-lg"
+                    onClick={() => removeArticle(article.article_id)}
+                  >
+                    Remove Bookmark
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
